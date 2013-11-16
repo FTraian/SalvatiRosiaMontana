@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Salvati Rosia Montana</string>
+    <string name="settings">Setari</string>
+    <string name="home">Meniu</string>
+    <string name="share">Distribuie</string>
+    <string name="donate">Doneaza!</string>
+    <string name="follow">Urmareste-ne pe FB!</string>
+    <string name="hello_world">Hello world!</string>
+     <string name="exit_press_back_twice_message">Apasati inca o data inapoi daca doriti sa parasiti aplicatia!</string>
+    <string name="pref_language">Continut</string>
+    <string name="pref_language_message">Selectati canalul de continut</string>
+    
+    <string name="city">Judetul</string>
+     <string name="about">Despre noi</string>
+       <string name="exit">Iesire</string>
+    <string name="city_mesage">Unde protestati?</string>
+    <string name="comm_error_text">Eroare de comunicare</string>
+    <string name="comm_error_msg_text">Serverul este indisponibil momentan. Incercati mai tarziu.</string>
+    <string name="ok_text">Ok</string>
+
+</resources>

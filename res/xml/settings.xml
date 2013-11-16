@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="@string/pref_language" >
+           
+        <ListPreference
+            android:key="language"
+            android:persistent="true"
+            android:entries="@array/languages"
+            android:entryValues="@array/languages_values"
+            android:title="@string/pref_language_message" />
+        
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/city" >
+        
+        <ListPreference
+            android:key="city"
+            android:persistent="true"
+            android:entries="@array/cities"
+            android:dependency="language"
+            
+            android:entryValues="@array/cities_values"
+            android:title="@string/city_mesage" />
+        
+    </PreferenceCategory>
+   
+    
+    
+</PreferenceScreen>

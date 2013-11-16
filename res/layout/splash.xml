@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+	Licensed Materials - Property of IBM
+	Copyright IBM Corp. 2010  All Rights Reserved
+	US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/LinearLayout01"
+	android:layout_width="fill_parent" 
+	android:layout_height="fill_parent"
+	android:gravity="center" 
+	android:background="#FFFFFF">
+	
+	<ImageView  
+        android:layout_width="fill_parent" 
+        android:layout_height="fill_parent"  
+        android:scaleType="center"
+        android:src="@drawable/splas"/>
+	
+</LinearLayout>

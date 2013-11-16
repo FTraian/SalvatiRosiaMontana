@@ -1,0 +1,40 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/settings"
+        android:orderInCategory="100"
+        android:showAsAction="ifRoom|withText"
+        android:onClick="onSettingsItemClick"
+        android:title="@string/settings"/>
+    <item
+        android:id="@+id/home"
+        android:orderInCategory="101"
+        android:onClick="onHomeItemClick"
+         android:showAsAction = "always"
+        android:title="@string/home"/>
+    <item
+        android:id="@+id/follow"
+        android:orderInCategory="101"
+        android:onClick="onFollowItemClick"
+         android:showAsAction = "always"
+        android:title="@string/follow"/>
+    
+    <item
+        android:id="@+id/exit"
+        android:orderInCategory="203"
+        android:onClick="onExitItemClick"
+        android:title="@string/exit"/>
+   
+    <item
+        android:id="@+id/donate"
+        android:orderInCategory="201"
+        android:onClick="onDonateItemClick"
+        android:title="@string/donate"/>
+    <item
+        android:id="@+id/about"
+        android:orderInCategory="202"
+        android:onClick="onAboutItemClick"
+        android:title="@string/about"/>
+    
+
+</menu>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="languages">
+        <item name="1">Romana</item>
+        <item name="2">International</item>
+        <item name="3">Diaspora</item>
+    </string-array>
+    <string-array name="languages_values">
+        <item name="1">Romana</item>
+        <item name="2">International</item>
+        <item name="3">Diaspora</item>
+    </string-array>
+    <string-array name="cities">
+        <item name="1">BUCURESTI</item>
+        <item name="2">ALBA</item>
+        <item name="3">ARAD</item>
+        <item name="4">ARGES</item>
+        <item name="5">BACAU</item>
+        <item name="6">BIHOR</item>
+        <item name="7">BISTRITA-NASAUD</item>
+        <item name="9">BOTOSANI</item>
+        <item name="8">BRAILA</item>
+        <item name="10">BRASOV</item>
+        <item name="51">BUZAU</item>
+        <item name="11">CALARASI</item>
+        <item name="12">CARAS-SEVERIN</item>
+        <item name="13">CLUJ</item>
+        <item name="14">CONSTANTA</item>
+        <item name="15">COVASNA</item>
+        <item name="16">DIMBOVITA</item>
+        <item name="17">DOLJ</item>
+        <item name="52">GALATI</item>
+        <item name="18">GIURGIU</item>
+        <item name="19">GORJ</item>
+        <item name="20">HARGHITA</item>
+        <item name="21">HUNEDOARA</item>
+        <item name="22">IALOMITA</item>
+        <item name="23">IASI</item>
+        <item name="24">ILFOV</item>
+        <item name="25">MARAMURES</item>
+        <item name="26">MEHEDINTI</item>
+        <item name="27">MURES</item>
+        <item name="28">NEAMT</item>
+        <item name="29">OLT</item>
+        <item name="31">PRAHOVA</item>
+        <item name="30">SALAJ</item>
+        <item name="32">SATU MARE</item>
+        <item name="33">SIBIU</item>
+        <item name="34">SUCEAVA</item>
+        <item name="35">TELEORMAN</item>
+        <item name="36">TIMIS</item>
+        <item name="37">TULCEA</item>
+        <item name="38">VASLUI</item>
+        <item name="39">VILCEA</item>
+        <item name="40">VRANCEA</item>
+    </string-array>
+    <string-array name="cities_values">
+        <item name="1">BUCURESTI</item>
+        <item name="2">ALBA</item>
+        <item name="3">ARAD</item>
+        <item name="4">ARGES</item>
+        <item name="5">BACAU</item>
+        <item name="6">BIHOR</item>
+        <item name="7">BISTRITA-NASAUD</item>
+        <item name="9">BOTOSANI</item>
+        <item name="8">BRAILA</item>
+        <item name="10">BRASOV</item>
+        <item name="51">BUZAU</item>
+        <item name="11">CALARASI</item>
+        <item name="12">CARAS-SEVERIN</item>
+        <item name="13">CLUJ</item>
+        <item name="14">CONSTANTA</item>
+        <item name="15">COVASNA</item>
+        <item name="16">DIMBOVITA</item>
+        <item name="17">DOLJ</item>
+        <item name="52">GALATI</item>
+        <item name="18">GIURGIU</item>
+        <item name="19">GORJ</item>
+        <item name="20">HARGHITA</item>
+        <item name="21">HUNEDOARA</item>
+        <item name="22">IALOMITA</item>
+        <item name="23">IASI</item>
+        <item name="24">ILFOV</item>
+        <item name="25">MARAMURES</item>
+        <item name="26">MEHEDINTI</item>
+        <item name="27">MURES</item>
+        <item name="28">NEAMT</item>
+        <item name="29">OLT</item>
+        <item name="31">PRAHOVA</item>
+        <item name="30">SALAJ</item>
+        <item name="32">SATU MARE</item>
+        <item name="33">SIBIU</item>
+        <item name="34">SUCEAVA</item>
+        <item name="35">TELEORMAN</item>
+        <item name="36">TIMIS</item>
+        <item name="37">TULCEA</item>
+        <item name="38">VASLUI</item>
+        <item name="39">VILCEA</item>
+        <item name="40">VRANCEA</item>
+    </string-array>
+
+</resources>
