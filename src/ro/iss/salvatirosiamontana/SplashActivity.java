@@ -11,51 +11,45 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 
-
-
-
-
 public class SplashActivity extends Activity {
 
-	public static final int SPLASH_DISPLAY_TIME = 3000;
+    public static final int SPLASH_DISPLAY_TIME = 3000;
 
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.splash);
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.splash);
 
 
-		Thread splashThread = new Thread() {
-			int wait = 0;
+        Thread splashThread = new Thread() {
+            int wait = 0;
 
-			@Override
-			public void run() {
-				try {
-					super.run();
-					while (wait < SPLASH_DISPLAY_TIME) {
-						sleep(100);
-						wait += 100;
-					}
-				}
-				catch(InterruptedException iex) {
-				}
-				catch (Exception e) {
-				}
-				finally {
-					startActivity(new Intent(SplashActivity.this, SalvatiRosia.class));
-					finish();
-				}
-			}
-		};
+            @Override
+            public void run() {
+                try {
+                    super.run();
+                    while (wait < SPLASH_DISPLAY_TIME) {
+                        sleep(100);
+                        wait += 100;
+                    }
+                }
+                catch(InterruptedException iex) {
+                }
+                catch (Exception e) {
+                }
+                finally {
+                    startActivity(new Intent(SplashActivity.this, SalvatiRosia.class));
+                    finish();
+                }
+            }
+        };
 
-		splashThread.start();
+        splashThread.start();
+    }
 
-	}
-
-	@Override
-	public void onConfigurationChanged(Configuration newConfig) {
-		super.onConfigurationChanged(newConfig);
-		setContentView(R.layout.splash);
-	}
-
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        setContentView(R.layout.splash);
+    }
 }

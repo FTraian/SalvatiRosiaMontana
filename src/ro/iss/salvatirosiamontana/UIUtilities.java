@@ -26,31 +26,31 @@ import android.widget.ArrayAdapter;
 
 public class UIUtilities {
 
-	
-
-	
-	
-
-	
 
 
-	
 
-	public static AlertDialog createCommunicationErrorDialog(Context context) {
-		AlertDialog.Builder dialog = new AlertDialog.Builder(context);
-		return dialog
-		.setTitle(context.getResources().getString(R.string.comm_error_text))
-		.setMessage(context.getResources().getString(R.string.comm_error_msg_text))
-		.setCancelable(false)
-		.setPositiveButton(context.getResources().getString(R.string.ok_text), new DialogInterface.OnClickListener() {
-			public void onClick(DialogInterface dialog, int id) {
-				dialog.cancel();
-			}
-		})
-		.create();
-	}
 
-	
+
+
+
+
+
+
+    public static AlertDialog createCommunicationErrorDialog(Context context) {
+        AlertDialog.Builder dialog = new AlertDialog.Builder(context);
+        return dialog
+        .setTitle(context.getResources().getString(R.string.comm_error_text))
+        .setMessage(context.getResources().getString(R.string.comm_error_msg_text))
+        .setCancelable(false)
+        .setPositiveButton(context.getResources().getString(R.string.ok_text), new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                dialog.cancel();
+            }
+        })
+        .create();
+    }
+
+
 
 }
 
