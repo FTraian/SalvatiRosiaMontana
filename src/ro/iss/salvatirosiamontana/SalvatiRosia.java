@@ -65,7 +65,7 @@ public class SalvatiRosia extends Activity {
             startActivity(new Intent(SalvatiRosia.this, Settings.class));
             // register to defaults???
             // TODO register to user options
-            register(MainConstants.TEST_CHANNEL);
+//            register(MainConstants.TEST_CHANNEL);
             register(MainConstants.BROADCAST_CHANNEL);
             register(MainConstants.DEFAULT_LANGUAGE);
             register(MainConstants.DEFAULT_CITY);
@@ -209,14 +209,14 @@ public class SalvatiRosia extends Activity {
             register(MainConstants.BROADCAST_CHANNEL);
         }
 
-//		if (MainConstants.DEFAULT_LANGUAGE.equalsIgnoreCase(savedLanguage)) {
-//			if (!savedCity.equalsIgnoreCase(cityChannel)) {
-//				unregister(cityChannel);
-//				register(savedCity);
-//			}
-//		} else if (!cityChannel.equalsIgnoreCase("")) {
-//			unregister(cityChannel);
-//		}
+		if (MainConstants.DEFAULT_LANGUAGE.equalsIgnoreCase(savedLanguage)) {
+			if (!savedCity.equalsIgnoreCase(cityChannel)) {
+				unregister(cityChannel);
+				register(savedCity);
+			}
+		} else if (!cityChannel.equalsIgnoreCase("")) {
+			unregister(cityChannel);
+		}
 
         this.doubleBackToExitPressedOnce = false;
         super.onResume();
