@@ -42,7 +42,7 @@ public class GCMHelper {
 	private String regid;
 	private Context mContext;
 
-	public GCMHelper(Activity context){
+	public GCMHelper(Context context){
 		this.mContext = context;
 	}
 
@@ -56,8 +56,8 @@ public class GCMHelper {
         int resultCode = GooglePlayServicesUtil.isGooglePlayServicesAvailable(mContext);
         if (resultCode != ConnectionResult.SUCCESS) {
             if (GooglePlayServicesUtil.isUserRecoverableError(resultCode)) {
-                GooglePlayServicesUtil.getErrorDialog(resultCode, (Activity) mContext,
-                        PLAY_SERVICES_RESOLUTION_REQUEST).show();
+//                GooglePlayServicesUtil.getErrorDialog(resultCode, (Activity) mContext,
+//                        PLAY_SERVICES_RESOLUTION_REQUEST).show();
             } else {
                 Log.i(TAG, "This device is not supported.");
             }
