@@ -1,4 +1,4 @@
-package ro.iss.salvatirosiamontana;
+package ro.iss.salvatirosiamontana.util;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,24 +19,17 @@ import com.google.android.gcm.rosiamontana.GCMHelper;
 
 public class HTTPHelper {
 
-	private static final String URL = "http://localhost:5000/register?client_id=";
+	public static final String URL = "http://localhost:5000/register?client_id=";
 
 	/**
 	 * Send a registration POST request to the backend
 	 * Usage example: POST: http://localhost:5000/register?client_id=45674 Body:
 	 * {"location":"Cluj", "continent":"Europe"}
 	 */
-	public static void register(Context context, String location, String continent) {
-		GCMHelper gcm = new GCMHelper(context);
-		String appId = gcm.getRegistrationId();
-		String url = URL + appId;
-		postData(url , location, continent);
-	}
-
-	private static void postData(String url, String location, String continent) {
+	public static void postData(String clientID, String location, String continent) {
 	    // Create a new HttpClient and Post Header
 	    HttpClient httpclient = new DefaultHttpClient();
-	    HttpPost httppost = new HttpPost(url);
+	    HttpPost httppost = new HttpPost(URL+clientID);
 
 	    try {
 	        // Add your data

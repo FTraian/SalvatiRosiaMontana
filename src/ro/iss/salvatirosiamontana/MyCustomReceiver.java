@@ -5,6 +5,8 @@ import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import ro.iss.salvatirosiamontana.util.MainConstants;
+
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;

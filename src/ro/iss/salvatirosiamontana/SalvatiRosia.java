@@ -2,6 +2,9 @@ package ro.iss.salvatirosiamontana;
 
 import java.util.Set;
 
+import ro.iss.salvatirosiamontana.util.MainConstants;
+import ro.iss.salvatirosiamontana.util.UIUtilities;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;

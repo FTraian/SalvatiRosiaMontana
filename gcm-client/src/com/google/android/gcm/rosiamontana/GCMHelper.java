@@ -13,10 +13,11 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.AsyncTask;
+import android.text.TextUtils;
 import android.util.Log;
 import android.widget.TextView;
 
-public class GCMHelper {
+public abstract class GCMHelper {
 
 
 	public static final String EXTRA_MESSAGE = "message";
@@ -40,10 +41,11 @@ public class GCMHelper {
 	private AtomicInteger msgId = new AtomicInteger();
 
 	private String regid;
-	private Context mContext;
+	protected Context mContext;
 
-	public GCMHelper(Context context){
+	public GCMHelper(Context context, final String appID) {
 		this.mContext = context;
+		this.SENDER_ID = appID;
 	}
 
 
@@ -94,7 +96,7 @@ public class GCMHelper {
     public String getRegistrationId() {
         final SharedPreferences prefs = getGcmPreferences();
         String registrationId = prefs.getString(PROPERTY_REG_ID, "");
-        if (registrationId.isEmpty()) {
+        if (TextUtils.isEmpty(registrationId)) {
             Log.i(TAG, "Registration not found.");
             return "";
         }
@@ -183,9 +185,6 @@ public class GCMHelper {
      * messages to your app. Not needed for this demo since the device sends upstream messages
      * to a server that echoes back the message using the 'from' address in the message.
      */
-    public void sendRegistrationIdToBackend() {
-      // Your implementation here.
-    }
-
+    public abstract void sendRegistrationIdToBackend();
 
 }

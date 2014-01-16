@@ -27,6 +27,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -76,7 +77,7 @@ public class DemoActivity extends Activity {
             gcm = GoogleCloudMessaging.getInstance(this);
             regid = getRegistrationId(context);
 
-            if (regid.isEmpty()) {
+            if (TextUtils.isEmpty(regid)) {
                 registerInBackground();
             }
         } else {
@@ -139,7 +140,7 @@ public class DemoActivity extends Activity {
     private String getRegistrationId(Context context) {
         final SharedPreferences prefs = getGcmPreferences(context);
         String registrationId = prefs.getString(PROPERTY_REG_ID, "");
-        if (registrationId.isEmpty()) {
+        if (TextUtils.isEmpty(registrationId)) {
             Log.i(TAG, "Registration not found.");
             return "";
         }

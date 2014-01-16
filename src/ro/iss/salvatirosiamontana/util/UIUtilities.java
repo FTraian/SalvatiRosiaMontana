@@ -4,9 +4,12 @@
  * US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
  *****************************************************************/
 
-package ro.iss.salvatirosiamontana;
+package ro.iss.salvatirosiamontana.util;
 
 import java.util.ArrayList;
+
+import ro.iss.salvatirosiamontana.R;
+import ro.iss.salvatirosiamontana.R.string;
 
 import android.app.AlertDialog;
 import android.content.Context;

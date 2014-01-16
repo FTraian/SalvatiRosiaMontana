@@ -72,6 +72,15 @@
                 <action android:name="TO" />
             </intent-filter>
         </receiver>
+        <!-- Receive Notification if application is upgraded -->
+        <receiver android:name="ro.iss.salvatirosiamontana.OnUpgradeReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REPLACED" />
+                <data
+                    android:path="ro.iss.salvatirosiamontana"
+                    android:scheme="package" />
+            </intent-filter>
+        </receiver>
 
         <!--
           WakefulBroadcastReceiver that will receive intents from GCM
