@@ -13,42 +13,71 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 
-import android.content.Context;
-
-import com.google.android.gcm.rosiamontana.GCMHelper;
+import android.util.Log;
 
 public class HTTPHelper {
 
-	public static final String URL = "http://localhost:5000/register?client_id=";
+	public static final String REGISTER_URL = "http://salvatirosiamontana-admin.herokuapp.com/register?client_id=";
+	public static final String SEND_URL = "http://salvatirosiamontana-admin.herokuapp.com/send";
+	private static final String TAG = HTTPHelper.class.getSimpleName();
 
 	/**
-	 * Send a registration POST request to the backend
-	 * Usage example: POST: http://localhost:5000/register?client_id=45674 Body:
-	 * {"location":"Cluj", "continent":"Europe"}
+	 * Send a registration POST request to the backend Usage example: POST:
+	 * http://localhost:5000/register?client_id=45674 Body: {"location":"Cluj",
+	 * "continent":"Europe"}
 	 */
-	public static void postData(String clientID, String location, String continent) {
-	    // Create a new HttpClient and Post Header
-	    HttpClient httpclient = new DefaultHttpClient();
-	    HttpPost httppost = new HttpPost(URL+clientID);
+	public static void register(String clientID, String location,
+			String continent) throws ClientProtocolException, IOException {
+		// Create a new HttpClient and Post Header
+		HttpPost httppost = new HttpPost(REGISTER_URL + clientID);
 
-	    try {
-	        // Add your data
-	        List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
-	        nameValuePairs.add(new BasicNameValuePair("location", location));
-	        nameValuePairs.add(new BasicNameValuePair("continent", continent));
-	        httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+		// Add your data
+		List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
+		nameValuePairs.add(new BasicNameValuePair("location", location));
+		nameValuePairs.add(new BasicNameValuePair("continent", continent));
+		httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
-	        // Execute HTTP Post Request
-	        HttpResponse response = httpclient.execute(httppost);
-
-	    } catch (ClientProtocolException e) {
-	        // TODO Auto-generated catch block
-	    } catch (IOException e) {
-	        // TODO Auto-generated catch block
-	    }
+		executeCommand(httppost);
 	}
-	// see http://androidsnippets.com/executing-a-http-post-request-with-httpclient
 
+	// see
+	// http://androidsnippets.com/executing-a-http-post-request-with-httpclient
 
+	/**
+	 * Sends data, to the back-end server.
+	 *
+	 * Usage example: POST: http://localhost:5000/send Body: { "filter":
+	 * [{"field": "location", "value": "Cluj"}, {"field": "continent", "value":
+	 * "Romania"}], "message":"This is a test message"}
+	 */
 
+	public static void sendData(String location, String continent,
+			String message) throws ClientProtocolException, IOException {
+		// Create a new HttpClient and Post Header
+		HttpPost httppost = new HttpPost(SEND_URL);
+
+		StringBuilder jsonBuilder = new StringBuilder();
+		jsonBuilder.append("[{\"field\":\"location\", \"value\": \"")
+				.append(location)
+				.append("\"}, {\"field\": \"continent\", \"value\":\"")
+				.append(continent).append("\"}]");
+
+		List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
+		nameValuePairs.add(new BasicNameValuePair("filter", jsonBuilder
+				.toString()));
+		nameValuePairs.add(new BasicNameValuePair("message", message));
+		httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+
+		// Execute HTTP Post Request
+		executeCommand(httppost);
+
+	}
+
+	private static void executeCommand(final HttpPost httppost) throws ClientProtocolException, IOException {
+		final HttpClient httpclient = new DefaultHttpClient();
+		// Execute HTTP Post Request
+		HttpResponse response = httpclient.execute(httppost);
+		Log.d(TAG, " .executeCommand(): " + response.getStatusLine()
+				+ "  // " + response);
+	}
 }

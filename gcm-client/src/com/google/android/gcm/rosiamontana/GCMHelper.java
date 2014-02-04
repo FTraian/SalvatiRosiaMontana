@@ -36,7 +36,6 @@ public abstract class GCMHelper {
 	 */
 	private static final String TAG = GCMHelper.class.getSimpleName();
 
-	private TextView mDisplay;
 	private GoogleCloudMessaging gcm;
 	private AtomicInteger msgId = new AtomicInteger();
 
@@ -127,6 +126,7 @@ public abstract class GCMHelper {
                     if (gcm == null) {
                         gcm = GoogleCloudMessaging.getInstance(mContext);
                     }
+                    Log.i(TAG, ".registerInBackground(): SENDER_ID "+SENDER_ID);
                     regid = gcm.register(SENDER_ID);
                     msg = "Device registered, registration ID=" + regid;
 
@@ -151,7 +151,7 @@ public abstract class GCMHelper {
 
             @Override
             protected void onPostExecute(String msg) {
-                mDisplay.append(msg + "\n");
+            	Log.i(TAG, msg);
             }
         }.execute(null, null, null);
     }

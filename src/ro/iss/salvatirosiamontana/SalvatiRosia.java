@@ -5,6 +5,7 @@ import java.util.Set;
 import ro.iss.salvatirosiamontana.util.MainConstants;
 import ro.iss.salvatirosiamontana.util.UIUtilities;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -13,6 +14,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v7.app.ActionBarActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
@@ -27,7 +29,7 @@ import com.parse.Parse;
 import com.parse.ParseInstallation;
 import com.parse.PushService;
 
-public class SalvatiRosia extends Activity {
+public class SalvatiRosia extends ActionBarActivity{
 
     private static final String TAG = SalvatiRosia.class.getSimpleName();
     private static final String EXTRA_CONTENT = "content";
@@ -50,7 +52,7 @@ public class SalvatiRosia extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    	super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_salvati_rosia);
         initUI();
         initialiseParse();
@@ -315,6 +317,10 @@ public class SalvatiRosia extends Activity {
         startActivity(facebookIntent);
     }
 
+    public void onSendItemClick(MenuItem item) {
+        startActivity(new Intent(SalvatiRosia.this, PostMessageActivity.class));
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -338,6 +344,8 @@ public class SalvatiRosia extends Activity {
             break;
         case R.id.follow:
             onFollowItemClick(item);
+        case R.id.send:
+        	onSendItemClick(item);
             break;
         default:
             break;

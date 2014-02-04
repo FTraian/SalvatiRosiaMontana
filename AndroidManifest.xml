@@ -35,10 +35,11 @@
         android:name="com.google.android.c2dm.permission.RECEIVE" />
 
     <application
+        android:name="ro.iss.salvatirosiamontana.RosiaMontanaApplication"
         android:allowBackup="true"
         android:icon="@drawable/logo_frunza"
         android:label="@string/app_name"
-        android:theme="@android:style/Theme.NoTitleBar" >
+        android:theme="@style/AppTheme" >
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
@@ -54,9 +55,11 @@
         </activity>
         <activity
             android:name=".SalvatiRosia"
+            android:theme="@style/Theme.AppCompat.Light"
             android:configChanges="orientation|screenSize" />
         <activity android:name=".Settings" />
         <activity android:name=".TwitterFeed" />
+        <activity android:name=".PostMessageActivity" />
 
         <service android:name="com.parse.PushService" />
         <service android:name="com.google.android.gcm.rosiamontana.GcmIntentService" />
