@@ -1,4 +1,4 @@
-package ro.iss.salvatirosiamontana.util;
+package ro.iss.salvatirosiamontana.common;
 
 public class MainConstants {
 

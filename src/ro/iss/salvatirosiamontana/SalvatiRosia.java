@@ -2,8 +2,8 @@ package ro.iss.salvatirosiamontana;
 
 import java.util.Set;
 
-import ro.iss.salvatirosiamontana.util.MainConstants;
-import ro.iss.salvatirosiamontana.util.UIUtilities;
+import ro.iss.salvatirosiamontana.common.MainConstants;
+import ro.iss.salvatirosiamontana.common.UIUtilities;
 
 import android.app.ActionBar;
 import android.app.Activity;

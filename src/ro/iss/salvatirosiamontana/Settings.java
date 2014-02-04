@@ -1,6 +1,6 @@
 package ro.iss.salvatirosiamontana;
 
-import ro.iss.salvatirosiamontana.util.MainConstants;
+import ro.iss.salvatirosiamontana.common.MainConstants;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;

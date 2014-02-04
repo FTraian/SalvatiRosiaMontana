@@ -1,4 +1,4 @@
-package ro.iss.salvatirosiamontana.util;
+package ro.iss.salvatirosiamontana.networking;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -15,19 +15,20 @@ import org.apache.http.message.BasicNameValuePair;
 
 import android.util.Log;
 
-public class HTTPHelper {
+public class HTTPWorker implements NetworkWorkerFactory.NetworkWorker {
 
 	public static final String REGISTER_URL = "http://salvatirosiamontana-admin.herokuapp.com/register?client_id=";
 	public static final String SEND_URL = "http://salvatirosiamontana-admin.herokuapp.com/send";
-	private static final String TAG = HTTPHelper.class.getSimpleName();
+	private static final String TAG = HTTPWorker.class.getSimpleName();
 
 	/**
 	 * Send a registration POST request to the backend Usage example: POST:
 	 * http://localhost:5000/register?client_id=45674 Body: {"location":"Cluj",
 	 * "continent":"Europe"}
 	 */
-	public static void register(String clientID, String location,
-			String continent) throws ClientProtocolException, IOException {
+	@Override
+	public void register(String clientID, String location, String continent)
+			throws ClientProtocolException, IOException {
 		// Create a new HttpClient and Post Header
 		HttpPost httppost = new HttpPost(REGISTER_URL + clientID);
 
@@ -50,9 +51,9 @@ public class HTTPHelper {
 	 * [{"field": "location", "value": "Cluj"}, {"field": "continent", "value":
 	 * "Romania"}], "message":"This is a test message"}
 	 */
-
-	public static void sendData(String location, String continent,
-			String message) throws ClientProtocolException, IOException {
+	@Override
+	public void sendData(String location, String continent, String message)
+			throws ClientProtocolException, IOException {
 		// Create a new HttpClient and Post Header
 		HttpPost httppost = new HttpPost(SEND_URL);
 
@@ -73,11 +74,12 @@ public class HTTPHelper {
 
 	}
 
-	private static void executeCommand(final HttpPost httppost) throws ClientProtocolException, IOException {
+	private static void executeCommand(final HttpPost httppost)
+			throws ClientProtocolException, IOException {
 		final HttpClient httpclient = new DefaultHttpClient();
 		// Execute HTTP Post Request
 		HttpResponse response = httpclient.execute(httppost);
-		Log.d(TAG, " .executeCommand(): " + response.getStatusLine()
-				+ "  // " + response);
+		Log.d(TAG, " .executeCommand(): " + response.getStatusLine() + "  // "
+				+ response);
 	}
 }

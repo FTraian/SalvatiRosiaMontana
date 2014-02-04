@@ -15,10 +15,9 @@ public class OnUpgradeReceiver extends BroadcastReceiver {
 	public void onReceive(Context context, Intent intent) {
 		//if upgraded re-register GCM
 		try{
-
+			((RosiaMontanaApplication)context.getApplicationContext()).getGCMHelper().registerInBackground();
 		} catch (ClassCastException e) {
 			e.printStackTrace();
 		}
-//		((RosiaMontanaApplication)context.getApplicationContext()).getGCMHelper().registerInBackground();
 	}
 }

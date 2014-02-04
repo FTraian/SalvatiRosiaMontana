@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 import org.apache.http.client.ClientProtocolException;
 
-import ro.iss.salvatirosiamontana.util.HTTPHelper;
+import ro.iss.salvatirosiamontana.networking.NetworkWorkerFactory;
 import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -64,7 +64,8 @@ public class PostMessageActivity extends Activity implements OnClickListener {
 				@Override
 				protected Exception doInBackground(Void... params) {
 					try {
-						HTTPHelper.sendData(
+						NetworkWorkerFactory.getNetworkWorker(
+								NetworkWorkerFactory.WorkerType.HTTP).sendData(
 								(String) mCitySpinner.getSelectedItem(),
 								(String) mLanguageSpinner.getSelectedItem(),
 								textToSend);

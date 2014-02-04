@@ -1,6 +1,6 @@
 package ro.iss.salvatirosiamontana;
 
-import ro.iss.salvatirosiamontana.util.UIUtilities;
+import ro.iss.salvatirosiamontana.common.UIUtilities;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
