@@ -25,4 +25,7 @@ public class MainConstants {
     public static final String APPLICATION_ID = "rqVCq2D4FwTGyzJFg5ARrdPQm7U6hQ0PsZTpP9Jq";
     public static final String CLIENT_KEY = "ZBzofMaATJLPP6baG5RVUSUuFpwDv4hxnWfEqAja";
 
+    public static final String GCM_APPLICATION_ID = "ro.iss.salvatirosiamontana";
+    public static final String GCM_SENDER_ID = "6840866819";
+
 }
