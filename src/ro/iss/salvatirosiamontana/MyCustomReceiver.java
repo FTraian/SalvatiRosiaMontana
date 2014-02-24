@@ -5,6 +5,8 @@ import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.parse.ParseAnalytics;
+
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -72,9 +74,10 @@ public class MyCustomReceiver extends BroadcastReceiver {
 			 SharedPreferences settings = arg0.getSharedPreferences(PREFS_NAME, 0);
 		     int id = settings.getInt("notificationId", 0);
 		     
-			createNotification(arg0, content,url, id++, title);
+		     ParseAnalytics.trackEvent(content);
+		     createNotification(arg0, content,url, id++, title);
 			
-			SharedPreferences.Editor editor = settings.edit();
+		     SharedPreferences.Editor editor = settings.edit();
 		     editor.putInt("notificationId", id++);
 		     editor.commit();
 		     
