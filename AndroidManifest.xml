@@ -4,16 +4,27 @@
     android:versionCode="1"
     android:versionName="0.1" >
 
-   <uses-sdk android:minSdkVersion="5" android:targetSdkVersion="8"/>
+    <uses-sdk
+        android:minSdkVersion="5"
+        android:targetSdkVersion="8" />
 
-     <uses-permission android:name="android.permission.INTERNET" /> 
-      <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    <permission
+        android:name="ro.iss.salvatirosiamontana.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="ro.iss.salvatirosiamontana.permission.C2D_MESSAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/logo_frunza"
         android:label="@string/app_name"
-      android:theme="@android:style/Theme.NoTitleBar">
+        android:theme="@android:style/Theme.NoTitleBar" >
         <activity
             android:name="ro.iss.salvatirosiamontana.SplashActivity"
             android:label="@string/app_name" >
@@ -23,13 +34,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SalvatiRosia" 
-           android:configChanges="orientation|screenSize"  
-            />
-         <activity android:name=".Settings" />
-          <activity android:name=".TwitterFeed" />
-        
-       <service android:name="com.parse.PushService" />
+        <activity
+            android:name=".SalvatiRosia"
+            android:configChanges="orientation|screenSize" />
+        <activity android:name=".Settings" />
+        <activity android:name=".TwitterFeed" />
+
+        <service android:name="com.parse.PushService" />
 
         <receiver android:name="com.parse.ParseBroadcastReceiver" >
             <intent-filter>
@@ -41,9 +52,17 @@
             <intent-filter>
                 <action android:name="TO" />
             </intent-filter>
-        </receiver>  
-         
+        </receiver>
+        <receiver
+            android:name="com.parse.GcmBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <category android:name="ro.iss.salvatirosiamontana" />
+            </intent-filter>
+        </receiver>
     </application>
-   
 
 </manifest>

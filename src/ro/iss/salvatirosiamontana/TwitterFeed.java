@@ -2,10 +2,8 @@ package ro.iss.salvatirosiamontana;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,7 +12,6 @@ import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.handmark.pulltorefresh.library.PullToRefreshWebView;
 
 public class TwitterFeed extends Activity {
 	//PullToRefreshWebView mWebView;
