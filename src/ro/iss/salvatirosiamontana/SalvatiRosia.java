@@ -100,7 +100,7 @@ public class SalvatiRosia extends Activity {
 	}
 
 	private void initialiseParse() {
-		Parse.initialize(this, "rqVCq2D4FwTGyzJFg5ARrdPQm7U6hQ0PsZTpP9Jq", "ZBzofMaATJLPP6baG5RVUSUuFpwDv4hxnWfEqAja");
+		Parse.initialize(getApplicationContext(), "rqVCq2D4FwTGyzJFg5ARrdPQm7U6hQ0PsZTpP9Jq", "ZBzofMaATJLPP6baG5RVUSUuFpwDv4hxnWfEqAja");
 		ParseAnalytics.trackAppOpened(getIntent());
 		PushService.setDefaultPushCallback(this, SalvatiRosia.class);
 		ParseInstallation.getCurrentInstallation().saveInBackground();
