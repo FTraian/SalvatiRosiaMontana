@@ -40,9 +40,9 @@ public class SalvatiRosia extends Activity {
 		browser.getSettings().setJavaScriptEnabled(true);
 		browser.setWebViewClient(new CustomWebViewClient());
 		progressBar = (ProgressBar) findViewById(R.id.progressBar1);
-		
+
 		initialiseParse();
-		
+
 		SharedPreferences settings = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
 		boolean isFirstRun = settings.getBoolean("isFirstRun", true);
 
@@ -100,7 +100,6 @@ public class SalvatiRosia extends Activity {
 	}
 
 	private void initialiseParse() {
-		Parse.initialize(getApplicationContext(), "rqVCq2D4FwTGyzJFg5ARrdPQm7U6hQ0PsZTpP9Jq", "ZBzofMaATJLPP6baG5RVUSUuFpwDv4hxnWfEqAja");
 		ParseAnalytics.trackAppOpened(getIntent());
 		PushService.setDefaultPushCallback(this, SalvatiRosia.class);
 		ParseInstallation.getCurrentInstallation().saveInBackground();
@@ -136,7 +135,7 @@ public class SalvatiRosia extends Activity {
 	@Override
 	protected void onResume() {
 		initialiseParse();
-		
+
 		String url = "";
 		if (browser != null)
 			url = browser.getUrl();

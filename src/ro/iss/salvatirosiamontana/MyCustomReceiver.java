@@ -14,13 +14,14 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.text.TextUtils;
 import android.util.Log;
 
 public class MyCustomReceiver extends BroadcastReceiver {
 	private static final String TAG = "MyCustomReceiver";
 	public static final String PREFS_NAME = "push";
-	
-	
+
+
 	public void createNotification(Context context, String content, String url ,int id,String title) {
 		NotificationManager notificationManager = (NotificationManager) context
 				.getSystemService(Context.NOTIFICATION_SERVICE);
@@ -29,19 +30,19 @@ public class MyCustomReceiver extends BroadcastReceiver {
 		// Hide the notification after its selected
 		notification.flags |= Notification.FLAG_AUTO_CANCEL;
 		notification.defaults |= Notification.DEFAULT_SOUND;
-		
+
 		Intent intent = new Intent(context, SalvatiRosia.class);
 		intent.putExtra("content", content);
 		intent.putExtra("payload", url);
-		
+
 		PendingIntent pendingIntent = PendingIntent.getActivity(context, id, intent, PendingIntent.FLAG_CANCEL_CURRENT);
 		title = context.getResources().getString(R.string.app_name);
 		notification.setLatestEventInfo(context, title,content, pendingIntent);
 		notificationManager.notify(id, notification);
 
 	}
-	
-	
+
+
 	@Override
 	public void onReceive(Context arg0, Intent intent) {
 		try {
@@ -57,9 +58,9 @@ public class MyCustomReceiver extends BroadcastReceiver {
 			String content="";
 			Iterator itr = json.keys();
 			while (itr.hasNext()) {
-				
+
 				String key = (String) itr.next();
-				
+
 				if (key.equalsIgnoreCase("url")){
 					url = json.getString(key);
 				}else if (key.equalsIgnoreCase("title")){
@@ -67,20 +68,25 @@ public class MyCustomReceiver extends BroadcastReceiver {
 				}else if (key.equalsIgnoreCase("content")){
 					content = json.getString(key);
 				}
-				
+
 				Log.d(TAG, "..." + key + " => " + json.getString(key));
 			}
-			
+
 			 SharedPreferences settings = arg0.getSharedPreferences(PREFS_NAME, 0);
 		     int id = settings.getInt("notificationId", 0);
-		     
-		     ParseAnalytics.trackEvent(content);
+
+		     if(!TextUtils.isEmpty(content)) {
+		    	 ParseAnalytics.trackEvent(content);
+		     } else {
+		    	 ParseAnalytics.trackEvent("Err empty Content Received");
+		     }
+
 		     createNotification(arg0, content,url, id++, title);
-			
+
 		     SharedPreferences.Editor editor = settings.edit();
 		     editor.putInt("notificationId", id++);
 		     editor.commit();
-		     
+
 		} catch (JSONException e) {
 			Log.d(TAG, "JSONException: " + e.getMessage());
 		}
