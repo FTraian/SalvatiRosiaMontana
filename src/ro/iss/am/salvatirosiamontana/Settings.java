@@ -1,4 +1,4 @@
-package ro.iss.salvatirosiamontana;
+package ro.iss.am.salvatirosiamontana;
 
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;

@@ -1,4 +1,4 @@
-package ro.iss.salvatirosiamontana;
+package ro.iss.am.salvatirosiamontana;
 
 import java.util.Iterator;
 
@@ -25,7 +25,7 @@ public class MyCustomReceiver extends BroadcastReceiver {
 	public void createNotification(Context context, String content, String url ,int id,String title) {
 		NotificationManager notificationManager = (NotificationManager) context
 				.getSystemService(Context.NOTIFICATION_SERVICE);
-		Notification notification = new Notification(ro.iss.salvatirosiamontana.R.drawable.logo_frunza,
+		Notification notification = new Notification(ro.iss.am.salvatirosiamontana.R.drawable.logo_frunza,
 				content , System.currentTimeMillis());
 		// Hide the notification after its selected
 		notification.flags |= Notification.FLAG_AUTO_CANCEL;

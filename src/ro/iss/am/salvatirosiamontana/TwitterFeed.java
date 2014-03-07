@@ -1,4 +1,4 @@
-package ro.iss.salvatirosiamontana;
+package ro.iss.am.salvatirosiamontana;
 
 import android.app.Activity;
 import android.content.Intent;
