@@ -19,5 +19,6 @@
     <string name="comm_error_text">Eroare de comunicare</string>
     <string name="comm_error_msg_text">Serverul este indisponibil momentan. Incercati mai tarziu.</string>
     <string name="ok_text">Ok</string>
+    <string name="save">Salveaza</string>
 
 </resources>

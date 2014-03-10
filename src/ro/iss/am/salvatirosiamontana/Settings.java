@@ -6,9 +6,10 @@ import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
+import android.view.View;
+import android.widget.Button;
 
-public class Settings extends PreferenceActivity implements
-		OnSharedPreferenceChangeListener {
+public class Settings extends PreferenceActivity implements OnSharedPreferenceChangeListener {
 	@SuppressWarnings("deprecation")
 	ListPreference languageList;
 	ListPreference cityList;
@@ -19,29 +20,26 @@ public class Settings extends PreferenceActivity implements
 		addPreferencesFromResource(R.xml.settings);
 		languageList = (ListPreference) findPreference("language");
 		cityList = (ListPreference) findPreference("city");
-		languageList
-				.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-					public boolean onPreferenceChange(Preference preference,
-							Object newValue) {
-						final String val = newValue.toString();
-						int index = languageList.findIndexOfValue(val);
-						languageList.setSummary(val);
-						if (index == 0) {
-							cityList.setEnabled(true);
-						} else {
-							cityList.setEnabled(false);
-						}
-						return true;
-					}
-				});
+		
+		languageList.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+			public boolean onPreferenceChange(Preference preference, Object newValue) {
+				final String val = newValue.toString();
+				int index = languageList.findIndexOfValue(val);
+				languageList.setSummary(val);
+				if (index == 0) {
+					cityList.setEnabled(true);
+				} else {
+					cityList.setEnabled(false);
+				}
+				return true;
+			}
+		});
 
 		cityList.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-			public boolean onPreferenceChange(Preference preference,
-					Object newValue) {
+			public boolean onPreferenceChange(Preference preference, Object newValue) {
 				final String val = newValue.toString();
 				cityList.setSummary(val);
-				
-				
+
 				return true;
 			}
 		});
@@ -65,13 +63,19 @@ public class Settings extends PreferenceActivity implements
 		}
 		listPreference.setSummary(listPreference.getEntry().toString());
 
+		
+		Button saveButton = new Button(this);
+		saveButton.setText(R.string.save);
+
+		saveButton.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				finish();
+			}
+		});
+		getListView().addFooterView(saveButton);
 	}
 
-	
-	
-
-	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences,
-			String key) {
+	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
 		Preference pref = findPreference(key);
 
 		if (pref instanceof ListPreference) {

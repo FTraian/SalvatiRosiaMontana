@@ -22,5 +22,6 @@
     <string name="comm_error_text">Communication error</string>
     <string name="comm_error_msg_text">The server is not available at the moment. Please try again later.</string>
     <string name="ok_text">OK</string>
+    <string name="save">Save</string>
 
 </resources>
