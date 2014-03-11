@@ -23,7 +23,5 @@
             android:title="@string/city_mesage" />
         
     </PreferenceCategory>
-   
-    
-    
+
 </PreferenceScreen>

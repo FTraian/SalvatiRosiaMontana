@@ -1,51 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="ro.iss.salvatirosiamontana"
-    android:versionCode="3"
-    android:versionName="0.2" >
+    package="ro.iss.am.salvatirosiamontana"
+    android:versionCode="4"
+    android:versionName="1.1" >
 
-    <!-- GCM requires Android SDK version 2.2 (API level 8) or above. -->
-    <!-- The targetSdkVersion is optional, but it's always a good practice
-         to target higher versions. -->
-    <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="16"/>
+    <uses-sdk
+        android:minSdkVersion="5"
+        android:targetSdkVersion="8" />
 
-    <!-- GCM connects to Google Services. -->
     <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
-    <!-- GCM requires a Google account. -->
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-
-    <!-- Keeps the processor from sleeping when a message is received. -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 
-    <!--
-     Creates a custom permission so only this app can receive its messages.
-
-     NOTE: the permission *must* be called PACKAGE.permission.C2D_MESSAGE,
-           where PACKAGE is the application's package name.
-    -->
-    <permission android:name="com.google.android.gcm.demo.app.permission.C2D_MESSAGE"
+    <permission
+        android:name="ro.iss.salvatirosiamontana.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
-    <uses-permission android:name="com.google.android.gcm.demo.app.permission.C2D_MESSAGE" />
 
-    <!-- This app has permission to register and receive data message. -->
-    <uses-permission
-        android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="ro.iss.salvatirosiamontana.permission.C2D_MESSAGE" />
 
     <application
-        android:name="ro.iss.salvatirosiamontana.RosiaMontanaApplication"
+        android:name="ro.iss.am.salvatirosiamontana.RosiaMontanaApplication"
         android:allowBackup="true"
         android:icon="@drawable/logo_frunza"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
-
+        android:theme="@android:style/Theme.NoTitleBar" >
         <activity
-            android:name="ro.iss.salvatirosiamontana.SplashActivity"
+            android:name="ro.iss.am.salvatirosiamontana.SplashActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -55,14 +38,11 @@
         </activity>
         <activity
             android:name=".SalvatiRosia"
-            android:theme="@style/Theme.AppCompat.Light"
             android:configChanges="orientation|screenSize" />
         <activity android:name=".Settings" />
         <activity android:name=".TwitterFeed" />
-        <activity android:name=".PostMessageActivity" />
 
         <service android:name="com.parse.PushService" />
-        <service android:name="com.google.android.gcm.rosiamontana.GcmIntentService" />
 
         <receiver android:name="com.parse.ParseBroadcastReceiver" >
             <intent-filter>
@@ -70,35 +50,19 @@
                 <action android:name="android.intent.action.USER_PRESENT" />
             </intent-filter>
         </receiver>
-        <receiver android:name="ro.iss.salvatirosiamontana.MyCustomReceiver" >
+        <receiver android:name="ro.iss.am.salvatirosiamontana.MyCustomReceiver" >
             <intent-filter>
                 <action android:name="TO" />
             </intent-filter>
         </receiver>
-        <!-- Receive Notification if application is upgraded -->
-        <receiver android:name="ro.iss.salvatirosiamontana.OnUpgradeReceiver" >
-            <intent-filter>
-                <action android:name="android.intent.action.PACKAGE_REPLACED" />
-                <data
-                    android:path="ro.iss.salvatirosiamontana"
-                    android:scheme="package" />
-            </intent-filter>
-        </receiver>
-
-        <!--
-          WakefulBroadcastReceiver that will receive intents from GCM
-          services and hand them to the custom IntentService.
-
-          The com.google.android.c2dm.permission.SEND permission is necessary
-          so only GCM services can send data messages for the app.
-        -->
         <receiver
-            android:name="com.google.android.gcm.rosiamontana.GcmBroadcastReceiver"
+            android:name="com.parse.GcmBroadcastReceiver"
             android:permission="com.google.android.c2dm.permission.SEND" >
             <intent-filter>
-                <!-- Receives the actual messages. -->
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-                <category android:name="com.google.android.gcm.demo.app" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <category android:name="ro.iss.salvatirosiamontana" />
             </intent-filter>
         </receiver>
     </application>
